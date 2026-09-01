@@ -120,7 +120,9 @@ body {
 }
 
 .publication-video iframe,
-.publication-video video {
+.publication-video video,
+.publication-video-fallback,
+.publication-video-fallback img {
   position: absolute;
   top: 0;
   left: 0;
@@ -128,6 +130,25 @@ body {
   height: 100%;
   object-fit: contain;
   background: #f5f5f5;
+}
+
+.publication-video-fallback {
+  display: block;
+}
+
+.publication-video-fallback img {
+  object-fit: cover;
+}
+
+.publication-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff0000;
+  font-size: 4.5rem;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
 }
 
 .eql-cntrb {

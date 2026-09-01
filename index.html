@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <meta name="description" content="">
   <meta property="og:title" content="UniScale">
@@ -44,7 +45,7 @@
               <span class="uniscale-text">UniScale</span><span class="uniscale-wave" aria-hidden="true">👋</span>
             </h1>
             <h1 class="title is-3 publication-title">
-              <span class="placeholder-text">Exploring Unimanual Gesture Mapping Strategies for Gaze+Pinch-based Scaling Interaction (<a href="https://www.ieeeismar.net/2026/" target="_blank" rel="noopener">ISMAR'26</a>)</span>
+              <span class="placeholder-text">Exploring Unimanual Gesture Mapping Strategies for Gaze+Pinch-based Scaling Interaction</span>
             </h1>
 
             <div class="is-size-5 publication-authors">
@@ -57,6 +58,10 @@
             <div class="is-size-5 publication-authors">
               <span class="author-block">KAIST</span>
               <span class="eql-cntrb"><small><br><sup>†</sup>Corresponding Authors</small></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <a href="https://www.ieeeismar.net/2026/" target="_blank" rel="noopener">ISMAR'26</a>
             </div>
 
             <div class="column has-text-centered">
@@ -236,10 +241,14 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Research Presentation</h2>
-            <div class="publication-video">
-              <video controls playsinline preload="metadata">
-                <source src="./src/UniScaleVideoDemo.mp4" type="video/mp4">
-              </video>
+            <div class="publication-video" id="research-video" data-youtube-id="pJ6CNrm1zzk">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/pJ6CNrm1zzk"
+                title="UniScale Research Presentation"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
@@ -365,6 +374,20 @@
 
       playScale();
       setInterval(playScale, INTERVAL_MS);
+    })();
+
+    (function () {
+      var wrap = document.getElementById('research-video');
+      if (!wrap || location.protocol !== 'file:') return;
+
+      var id = wrap.getAttribute('data-youtube-id');
+      if (!id) return;
+
+      wrap.innerHTML =
+        '<a class="publication-video-fallback" href="https://youtu.be/' + id + '" target="_blank" rel="noopener">' +
+          '<img src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="UniScale Research Presentation">' +
+          '<span class="publication-video-play" aria-hidden="true"><i class="fab fa-youtube"></i></span>' +
+        '</a>';
     })();
   </script>
 
