@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>uniScale</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <h1>uniScale</h1>
+    </div>
+    <p id="goal" hidden>Near the Harbor there is a Lighthouse. Find the red buoy.</p>
+  </header>
+  <main>
+    <section class="stage" id="stage">
+      <video id="video" playsinline autoplay muted></video>
+      <canvas id="canvas" width="960" height="540"></canvas>
+      <button id="start" class="start" type="button">Start camera</button>
+    </section>
+    <aside>
+      <section>
+        <h2>Application</h2>
+        <div class="aim">
+          <button id="app-base" class="active" type="button">Base</button>
+          <button id="app-map" type="button">Map</button>
+          <button id="app-cad" type="button">CAD</button>
+        </div>
+      </section>
+      <section>
+        <h2>Scale</h2>
+        <div class="modes" id="modes"></div>
+      </section>
+      <section>
+        <h2>Settings</h2>
+        <div class="choice">
+          <div>
+            <button id="clutch-hold" class="active" type="button">Clutching</button>
+            <p id="rec-clutch" class="recommend" hidden>👍 Recommended</p>
+          </div>
+          <div>
+            <button id="clutch-free" type="button">Clutching-Free</button>
+            <p id="rec-free" class="recommend" hidden>👍 Recommended</p>
+          </div>
+        </div>
+        <div class="settings">
+          <button id="hand" type="button">Right hand</button>
+          <button id="reset" type="button">Reset</button>
+          <button id="stop" type="button">Quit</button>
+        </div>
+      </section>
+      <section>
+        <h2>Advanced Settings</h2>
+        <div class="choice">
+          <button id="pan-drag" class="active" type="button">Drag</button>
+          <button id="pan-follow" type="button">Follow</button>
+        </div>
+        <p class="hint">Drag pulls the picture with the hand, so moving up sends the view down. Follow moves the view with the hand.</p>
+        <div class="sliders">
+          <label>
+            <span>Zoom sensitivity <b id="zoom-value">1.0</b></span>
+            <input id="zoom-sensitivity" type="range" min="0.25" max="3" step="0.05" value="1">
+          </label>
+          <label>
+            <span>Drag sensitivity <b id="drag-value">1.0</b></span>
+            <input id="drag-sensitivity" type="range" min="0.25" max="3" step="0.05" value="1">
+          </label>
+        </div>
+      </section>
+      <section>
+        <h2>Status</h2>
+        <div id="verdict" class="verdict bad">Camera off</div>
+        <ul id="checks"></ul>
+      </section>
+    </aside>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
